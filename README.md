@@ -5,5 +5,5 @@
 
 ```js
 $ npm install -g generator-gnm
-$ yo gnm
+$ yo gnm or yo gnm:cli
 ```

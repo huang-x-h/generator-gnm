@@ -3,9 +3,12 @@
 const generators = require('yeoman-generator')
 
 module.exports = generators.Base.extend({
-  asking: function() {
-    let done = this.async()
+  initializing: function() {
+    this.cli = this.options.cli
+    this.commandName = this.options.commandName
+  },
 
+  prompting: function() {
     this.log('You\'re using the npm module generator.')
 
     let prompts = [
@@ -34,15 +37,15 @@ module.exports = generators.Base.extend({
         store: true
       }]
 
-    this.prompt(prompts, (props) => {
-      this.moduleName = props.moduleName
-      this.moduleDescription = props.moduleDescription
-      this.authorName = props.authorName
-      this.fullName = props.fullName
-      this.emailAddress = props.emailAddress
-      done()
+    return this.prompt(prompts).then((answers) => {
+      this.moduleName = answers.moduleName
+      this.moduleDescription = answers.moduleDescription
+      this.authorName = answers.authorName
+      this.fullName = answers.fullName
+      this.emailAddress = answers.emailAddress
     })
   },
+
   writing: function() {
     this.template('_package.json', 'package.json')
     this.template('_README.md', 'README.md')

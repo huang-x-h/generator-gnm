@@ -1,22 +1,23 @@
 'use strict';
 
-const app = require('../app')
+const generators = require('yeoman-generator')
 
-module.exports = app.extend({
-  asking: function() {
-    let done = this.async()
+module.exports = generators.Base.extend({
+  prompting: function() {
+    let prompts ={
+      name: 'commandName',
+      message: 'What is the command name of your module?'
+    }
 
-    let prompts = [
-      {
-        name: 'commandName',
-        message: 'What is the command name of your module?'
-      }]
-
-    this.prompt(prompts, (props) => {
+    return this.prompt(prompts).then((props) => {
       this.commandName = props.commandName
-      done()
     })
   },
+
+  default: function() {
+    this.composeWith('gnm', { options: { cli: true, commandName: this.commandName }});
+  },
+  
   writing: function() {
     this.template('_cli.js', 'cli.js')
   }

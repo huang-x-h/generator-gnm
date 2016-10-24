@@ -2,6 +2,9 @@
   "name": "<%= moduleName %>",
   "version": "0.1.0",
   "description": "<%= moduleDescription %>",
+  <% if (cli) { %>"bin": {
+    "<%= commandName %>": "./cli.js"
+  },<% } %>
   "main": "index.js",
   "files": ["index.js"],
   "repository": {

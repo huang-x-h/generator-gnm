@@ -5,7 +5,7 @@ var cli = require('./index');
 
 program
   .version('1.0.0')
-  .command('lstree')
+  .command('<%= commandName %>')
   .parse(process.argv);
 
 cli(program);
