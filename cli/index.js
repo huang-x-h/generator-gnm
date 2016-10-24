@@ -17,8 +17,12 @@ module.exports = generators.Base.extend({
   default: function() {
     this.composeWith('gnm', { options: { cli: true, commandName: this.commandName }});
   },
-  
+
   writing: function() {
     this.template('_cli.js', 'cli.js')
+  },
+
+  end: function() {
+    this.npmInstall(['commander'], { 'save': true })
   }
 })

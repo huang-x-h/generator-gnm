@@ -1,9 +1,10 @@
 # generator-gnm
-> generator npm module with yo
+> generator node module with yo
 
 ## Usage
 
 ```js
 $ npm install -g generator-gnm
-$ yo gnm or yo gnm:cli
+$ yo gnm // generate node module
+$ yo gnm:cli // generate command node module
 ```
