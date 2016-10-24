@@ -1,0 +1,4 @@
+# <%= moduleName %>
+> <%= moduleDescription %>
+
+## Usage

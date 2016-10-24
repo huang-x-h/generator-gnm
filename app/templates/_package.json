@@ -1,0 +1,19 @@
+{
+  "name": "<%= moduleName %>",
+  "version": "0.1.0",
+  "description": "<%= moduleDescription %>",
+  "main": "index.js",
+  "files": ["index.js"],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/<%= authorName %>/<%= moduleName %>.git"
+  },
+  "homepage": "https://github.com/<%= authorName %>/<%= moduleName %>",
+  "keywords": [
+  ],
+  "license": "MIT",
+  "author": "<%= fullName %> <%= emailAddress %>",
+  "bugs": {
+    "url": "https://github.com/<%= authorName %>/<%= moduleName %>/issues"
+  }
+}
