@@ -14,11 +14,11 @@ module.exports = class extends Generator {
     return this.prompt(prompts).then((props) => {
       this.props.commandName = props.commandName
     })
-  },
+  }
 
-  default: function() {
+  default() {
     this.composeWith(requrie.resolve('../app'), { options: { cli: true, commandName: this.commandName }});
-  },
+  }
 
   writing() {
     this.fs.copyTpl(
@@ -26,9 +26,9 @@ module.exports = class extends Generator {
       this.destinationPath('cli.js'),
       this.props
     )
-  },
+  }
 
-  end: function() {
+  end() {
     this.npmInstall(['commander'], { 'save': true })
   }
-})
+}

@@ -6,7 +6,7 @@ module.exports = class extends Generator {
       cli: this.options.cli,
       commandName: this.options.commandName
     }
-  },
+  }
 
   prompting() {
     this.log('You\'re using the node module generator.')
@@ -35,27 +35,36 @@ module.exports = class extends Generator {
         name: 'emailAddress',
         message: 'What is your email address?',
         store: true
+      },
+      {
+        name: 'website',
+        message: 'What is your site?',
+        store: true
       }]
 
-    return this.prompt(prompts).then((answers) => {
+    return this.prompt(prompts).then(answers => {
       Object.assign(this.props, answers)
     })
-  },
+  }
 
   writing() {
     ['package.json', 'jsdoc-conf.json', 'README.md'].forEach(item => {
       this.fs.copyTpl(
-        this.templatePath('_package.json'),
-        this.destinationPath('package.json'),
+        this.templatePath(item),
+        this.destinationPath(item),
         this.props
       )
     })
 
-    ['.gitignore', '.gitattributes', '.editorconfig', '.editorconfig', 'index.js'].forEach(item =>  {
+    ['.editorconfig', '.gitignore', '.gitattributes', 'index.js'].forEach(item =>  {
       this.fs.copy(
         this.templatePath(item),
         this.destinationPath(item)
       )
     })
   }
-})
+
+  end() {
+    this.npmInstall(['ink-docstrap', 'jsdoc'], { 'save': true })
+  }
+}
