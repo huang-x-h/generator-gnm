@@ -1,6 +1,6 @@
 {
   "name": "generator-gnm",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "generator node module with yo",
   "main": "app/index.js",
   "script": {

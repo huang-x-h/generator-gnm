@@ -15,7 +15,11 @@
   "keywords": [
   ],
   "license": "MIT",
-  "author": "<%= fullName %> <%= emailAddress %>",
+  "author": {
+    "name": "<%= fullName %>",
+    "email": "<%= emailAddress %>",
+    "url": "<%= website %>"
+  },
   "bugs": {
     "url": "https://github.com/<%= authorName %>/<%= moduleName %>/issues"
   }
