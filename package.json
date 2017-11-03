@@ -1,12 +1,11 @@
 {
   "name": "generator-gnm",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "generator node module with yo",
   "main": "app/index.js",
   "script": {
     "test": ""
   },
-  "files": ["app", "cli"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/huang-x-h/generator-gnm.git"
@@ -22,9 +21,6 @@
     "url": "https://github.com/huang-x-h/generator-gnm/issues"
   },
   "dependencies": {
-    "yeoman-generator": "^0.24.1"
-  },
-  "peerDependencies": {
-    "yo": "^1.8.5"
+    "yeoman-generator": "^2.0.1"
   }
 }

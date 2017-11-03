@@ -18,5 +18,10 @@
   "author": "<%= fullName %> <%= emailAddress %>",
   "bugs": {
     "url": "https://github.com/<%= authorName %>/<%= moduleName %>/issues"
+  },
+  "devDependencies": {
+    "ink-docstrap": "^1.3.0",
+    <% if (cli) { %>"commander": "*"<% } %>
+    "jsdoc": "^3.4.3"
   }
 }

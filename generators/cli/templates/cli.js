@@ -4,7 +4,7 @@ var program = require('commander');
 var cli = require('./index');
 
 program
-  .version('1.0.0')
+  .version('0.1.0')
   .command('<%= commandName %>')
   .parse(process.argv);
 
