@@ -5,11 +5,11 @@ module.exports = class extends Generator {
     this.props = {
       cli: this.options.cli,
       commandName: this.options.commandName
-    }
+    };
   }
 
   prompting() {
-    this.log('You\'re using the node module generator.')
+    this.log('You\'re using the node module generator.');
 
     let prompts = [
       {
@@ -43,28 +43,28 @@ module.exports = class extends Generator {
       }]
 
     return this.prompt(prompts).then(answers => {
-      Object.assign(this.props, answers)
+      Object.assign(this.props, answers);
     })
   }
 
   writing() {
+    ['.editorconfig', '.gitignore', '.gitattributes', 'index.js'].forEach(item =>  {
+      this.fs.copy(
+        this.templatePath(item),
+        this.destinationPath(item)
+      );
+    });
+
     ['package.json', 'jsdoc-conf.json', 'README.md'].forEach(item => {
       this.fs.copyTpl(
         this.templatePath(item),
         this.destinationPath(item),
         this.props
-      )
-    })
-
-    ['.editorconfig', '.gitignore', '.gitattributes', 'index.js'].forEach(item =>  {
-      this.fs.copy(
-        this.templatePath(item),
-        this.destinationPath(item)
-      )
-    })
+      );
+    });
   }
 
   end() {
-    this.npmInstall(['ink-docstrap', 'jsdoc'], { 'save': true })
+    this.npmInstall(['ink-docstrap', 'jsdoc'], { 'save': true });
   }
 }
